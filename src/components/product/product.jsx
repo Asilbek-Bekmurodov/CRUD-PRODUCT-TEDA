@@ -1,5 +1,14 @@
 import cls from "./product.module.scss";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 const Product = () => {
+  const { productID } = useParams();
+
+  console.log(productID);
+
+  const product=axios.get("")
+
+
   return (
     <div className={cls.product}>
       <div className={cls.image}>
