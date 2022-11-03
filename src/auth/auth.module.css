@@ -1,0 +1,75 @@
+.auth-page {
+  height: 100vh;
+  background: #fefefe;
+  position: relative;
+}
+.auth-page .shape {
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  bottom: 0;
+  left: 0;
+  background: url(../assets/wave1.png);
+  -webkit-animation: anime 7s linear infinite;
+          animation: anime 7s linear infinite;
+}
+.auth-page .shape::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  bottom: 0;
+  left: 0;
+  opacity: 0.4;
+  background: url(../assets/wave1.png);
+  -webkit-animation: anime-reverse 5s linear infinite;
+          animation: anime-reverse 5s linear infinite;
+}
+.auth-page .shape::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 250px;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  background: url(../assets/wave1.png);
+  -webkit-animation-delay: -5s;
+          animation-delay: -5s;
+  -webkit-animation: anime 18s linear infinite;
+          animation: anime 18s linear infinite;
+}
+
+@-webkit-keyframes anime {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 1440px;
+  }
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 1440px;
+  }
+}
+@-webkit-keyframes anime-reverse {
+  0% {
+    background-position: 1440px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+@keyframes anime-reverse {
+  0% {
+    background-position: 1440px;
+  }
+  100% {
+    background-position: 0;
+  }
+}/*# sourceMappingURL=auth.module.css.map */

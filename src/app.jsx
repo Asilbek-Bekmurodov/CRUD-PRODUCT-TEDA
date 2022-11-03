@@ -1,9 +1,13 @@
+import { Routes, Route } from "react-router-dom";
 import Auth from "./auth/auth";
-
+import Products from "./products/products";
 const App = () => {
   return (
     <>
-      <Auth />
+      <Routes>
+        <Route path="/products" element={<Products />} />
+        <Route path="/" element={<Auth />} />
+      </Routes>
     </>
   );
 };

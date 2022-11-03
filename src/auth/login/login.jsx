@@ -2,24 +2,25 @@ import cls from "./login.module.scss";
 import axios from "axios";
 import { useForm, Controller } from "react-hook-form";
 import { Button, TextField } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const {
     formState: { errors },
     handleSubmit,
-    reset,
+
     control,
   } = useForm();
 
   const baseUrl = "https://profitmodel-server.herokuapp.com/api/auth/login";
 
   const onSubmit = async (data) => {
-    alert(JSON.stringify(data));
-    reset();
     const request = await axios
       .post(baseUrl, data)
       .then((res) => {
         localStorage.setItem("token", res.data.data);
+        navigate("/products");
         return res.data.data;
       })
       .catch((errors) => {
