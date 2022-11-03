@@ -1,13 +1,21 @@
 import cls from "./product.module.scss";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-const Product = () => {
-  const { productID } = useParams();
+// import { useParams } from "react-router-dom";
+// import axios from "axios";
+// import api from "../../api";
 
-  console.log(productID);
+const Product = ({ item }) => {
+  // const { productID } = useParams();
 
-  const product=axios.get("")
+  // const product = async () =>
+  //   await axios
+  //     .get(`https://profitmodel-server.herokuapp.com/api/products/1`)
+  //     .then((d) => {
+  //       return d.data;
+  //     })
+  //     .catch((err) => console.log(err.message));
 
+  // console.log(productID);
+  // console.log(product());
 
   return (
     <div className={cls.product}>
@@ -18,11 +26,11 @@ const Product = () => {
         />
       </div>
       <div className={cls.info}>
-        <h3 className={cls.title}>Apple</h3>
-        <p className={cls.description}>Description</p>
+        <h3 className={cls.title}>{item.name}</h3>
+        <p className={cls.description}>{item.description}</p>
         <div className={cls["price-box"]}>
-          <span className={cls.sale}>$169.99</span>
-          <span className={cls.current}>$219.00</span>
+          <span className={cls.sale}>${item.priceList[0].price}</span>
+          <span className={cls.current}>${item.priceList[0].realPrice}</span>
         </div>
         <div className={cls.delivery}>Free shipping Free Gift</div>
         <div className={cls["buttons-box"]}>
