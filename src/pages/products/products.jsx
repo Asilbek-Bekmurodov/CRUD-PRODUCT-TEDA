@@ -5,7 +5,6 @@ const Products = () => {
   return (
     <div className={cls.wrapper}>
       <div className={cls.container}>
-        <div className={cls.sidebar}></div>
         <div className={cls.main}>
           <Main />
         </div>

@@ -9,7 +9,7 @@
     height: 250px;
     bottom: 0;
     left: 0;
-    background: url(../assets/wave1.png);
+    background: url(../../assets/wave1.png);
     animation: anime 7s linear infinite;
 
     &::before {
@@ -20,7 +20,7 @@
       bottom: 0;
       left: 0;
       opacity: 0.4;
-      background: url(../assets/wave1.png);
+      background: url(../../assets/wave1.png);
       animation: anime-reverse 5s linear infinite;
     }
 
@@ -32,7 +32,7 @@
       bottom: 0;
       left: 0;
       opacity: 0.6;
-      background: url(../assets/wave1.png);
+      background: url(../../assets/wave1.png);
       animation-delay: -5s;
       animation: anime 18s linear infinite;
     }

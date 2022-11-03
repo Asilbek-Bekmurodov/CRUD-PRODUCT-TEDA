@@ -1,27 +1,14 @@
 import cls from "./product.module.scss";
 // import { useParams } from "react-router-dom";
-// import axios from "axios";
-// import api from "../../api";
 
 const Product = ({ item }) => {
   // const { productID } = useParams();
-
-  // const product = async () =>
-  //   await axios
-  //     .get(`https://profitmodel-server.herokuapp.com/api/products/1`)
-  //     .then((d) => {
-  //       return d.data;
-  //     })
-  //     .catch((err) => console.log(err.message));
-
-  // console.log(productID);
-  // console.log(product());
-
+  const productUrl = "https://profitmodel-server.herokuapp.com/api/product";
   return (
     <div className={cls.product}>
       <div className={cls.image}>
         <img
-          src="https://cdn.pixabay.com/photo/2014/08/05/10/30/iphone-410324_1280.jpg"
+          src={productUrl + "/" + item.id + "/photo/" + item.photos[0].id}
           alt=""
         />
       </div>
