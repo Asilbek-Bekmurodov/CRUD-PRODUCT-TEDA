@@ -1,0 +1,58 @@
+.auth-page {
+  height: 100vh;
+  background: #fefefe;
+  position: relative;
+
+  .shape {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    bottom: 0;
+    left: 0;
+    background: url(../assets/wave1.png);
+    animation: anime 7s linear infinite;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 250px;
+      bottom: 0;
+      left: 0;
+      opacity: 0.4;
+      background: url(../assets/wave1.png);
+      animation: anime-reverse 5s linear infinite;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 250px;
+      bottom: 0;
+      left: 0;
+      opacity: 0.6;
+      background: url(../assets/wave1.png);
+      animation-delay: -5s;
+      animation: anime 18s linear infinite;
+    }
+  }
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: 1440px;
+  }
+}
+
+@keyframes anime-reverse {
+  0% {
+    background-position: 1440px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
