@@ -53,7 +53,7 @@ const Edit = () => {
   return (
     <div className={cls.wrapper}>
       <h1>Edit Product</h1>
-      <Button onClick={() => navigate("/products")}>BACK</Button>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           render={({ field }) => (
@@ -207,8 +207,12 @@ const Edit = () => {
           {!photo.current && <p className={cls.error}>File yuklash kerak</p>}
         </div>
 
-        <Button type="submit" onClick={handleSubmit(onSubmit)}>
+        <Button type="primary" onClick={handleSubmit(onSubmit)}>
           SAVE
+        </Button>
+
+        <Button type="primary" onClick={() => navigate("/products")}>
+          BACK
         </Button>
       </form>
     </div>
