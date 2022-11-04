@@ -6,7 +6,7 @@
     margin: 40px;
     display: grid;
     justify-content: center;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 24px 32px;
   }
   .title {
