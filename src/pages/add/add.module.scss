@@ -7,3 +7,11 @@
     color: red;
   }
 }
+:global {
+  .ant-btn-primary {
+    margin: 20px 0;
+  }
+  .ant-btn-primary:last-child {
+    margin-left: 10px;
+  }
+}

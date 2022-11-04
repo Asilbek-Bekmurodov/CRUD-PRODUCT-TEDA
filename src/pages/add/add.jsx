@@ -17,7 +17,6 @@ const Add = () => {
   const navigate = useNavigate();
 
   const onSubmit = async ({
-    files,
     name,
     description,
     price,
@@ -52,7 +51,6 @@ const Add = () => {
   return (
     <div className={cls.wrapper}>
       <h1>Create Product</h1>
-      <Button onClick={() => navigate("/products")}>BACK</Button>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
@@ -200,12 +198,12 @@ const Add = () => {
           <Input ref={photo} type="file" label="photos" />
         </>
 
-        <Button
-          type="submit"
-          onClick={handleSubmit(onSubmit)}
-          // disabled={!isValid}
-        >
-          LOGIN
+        <Button type="primary" onClick={handleSubmit(onSubmit)}>
+          CREATE
+        </Button>
+
+        <Button type="primary" onClick={() => navigate("/products")}>
+          BACK
         </Button>
       </form>
     </div>
