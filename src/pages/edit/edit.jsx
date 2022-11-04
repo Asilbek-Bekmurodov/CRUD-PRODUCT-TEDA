@@ -2,22 +2,23 @@ import { Button, Input } from "antd";
 
 import { Controller, useForm } from "react-hook-form";
 import api from "../../api";
-import cls from "./add.module.scss";
-import { useNavigate } from "react-router-dom";
+import cls from "./edit.module.scss";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useRef } from "react";
-const Add = () => {
+const Edit = () => {
   const {
     formState: { errors },
     handleSubmit,
     control,
   } = useForm();
-
+  const location = useLocation();
   const photo = useRef(null);
+
   let formData = new FormData();
   const navigate = useNavigate();
+  console.log(location.state.id.id);
 
   const onSubmit = async ({
-    files,
     name,
     description,
     price,
@@ -35,13 +36,13 @@ const Add = () => {
     formData.append("priceList[0].type", "BANK");
     formData.append("priceList[0].price", price);
     formData.append("photos[]", photo.current.input.files[0]);
-    addProduct();
+    editProduct();
   };
 
-  const addProduct = async () => {
+  const editProduct = async () => {
     api
-      .post("/product", formData)
-      .then((res) => {
+      .put(`/product/${location.state.id.id}`, formData)
+      .then(() => {
         navigate("/products");
       })
       .catch((err) => {
@@ -51,49 +52,55 @@ const Add = () => {
 
   return (
     <div className={cls.wrapper}>
-      <h1>Create Product</h1>
+      <h1>Edit Product</h1>
       <Button onClick={() => navigate("/products")}>BACK</Button>
-
       <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
           render={({ field }) => (
             <>
               <label>name</label>
-              <Input label="name" onChange={(e) => field.onChange(e)} />
+              <Input
+                label="name"
+                defaultValue={location.state.id.name}
+                onChange={(e) => field.onChange(e)}
+              />
               {errors && <p className={cls.error}>{errors.name?.message}</p>}
             </>
           )}
           control={control}
-          defaultValue=""
+          defaultValue={location.state.id.name}
           name="name"
           rules={{
             required: "To'ldirish shart",
           }}
         />
-
         <Controller
           render={({ field }) => (
             <>
               <label>description</label>
-              <Input label="description" onChange={(e) => field.onChange(e)} />
+              <Input
+                defaultValue={location.state.id.description}
+                label="description"
+                onChange={(e) => field.onChange(e)}
+              />
               {errors && (
                 <p className={cls.error}>{errors.description?.message}</p>
               )}
             </>
           )}
           control={control}
-          defaultValue=""
+          defaultValue={location.state.id.description}
           name="description"
           rules={{
             required: "To'ldirish shart",
           }}
         />
-
         <Controller
           render={({ field }) => (
             <>
               <label>categoryId</label>
               <Input
+                defaultValue={location.state.id.category.id}
                 type="number"
                 label="categoryId"
                 onChange={(e) => field.onChange(e)}
@@ -104,18 +111,18 @@ const Add = () => {
             </>
           )}
           control={control}
-          defaultValue=""
+          defaultValue={location.state.id.category.id}
           name="categoryId"
           rules={{
             required: "To'ldirish shart !",
           }}
         />
-
         <Controller
           render={({ field }) => (
             <>
               <label>brandId</label>
               <Input
+                defaultValue={location.state.id.brand.id}
                 type="number"
                 label="categoryId"
                 onChange={(e) => field.onChange(e)}
@@ -124,18 +131,18 @@ const Add = () => {
             </>
           )}
           control={control}
-          defaultValue=""
+          defaultValue={location.state.id.brand.id}
           name="brandId"
           rules={{
             required: "To'ldirish shart !",
           }}
         />
-
         <Controller
           render={({ field }) => (
             <>
               <label>measurementId</label>
               <Input
+                defaultValue={location.state.id.measurement.id}
                 type="number"
                 label="measurementId"
                 onChange={(e) => field.onChange(e)}
@@ -146,18 +153,18 @@ const Add = () => {
             </>
           )}
           control={control}
-          defaultValue=""
+          defaultValue={location.state.id.measurement.id}
           name="measurementId"
           rules={{
             required: "To'ldirish shart !",
           }}
         />
-
         <Controller
           render={({ field }) => (
             <>
               <label>discount</label>
               <Input
+                defaultValue={location.state.id.discount}
                 type="number"
                 label="discount"
                 onChange={(e) => field.onChange(e)}
@@ -168,19 +175,19 @@ const Add = () => {
             </>
           )}
           control={control}
-          defaultValue=""
+          defaultValue={location.state.id.discount}
           name="discount"
           rules={{
             required: "To'ldirish shart !",
           }}
         />
-
         <Controller
           render={({ field }) => (
             <>
               <label>price</label>
               <Input
                 type="number"
+                defaultValue={location.state.id.priceList[0].price}
                 label="price"
                 onChange={(e) => field.onChange(e)}
               />
@@ -188,28 +195,24 @@ const Add = () => {
             </>
           )}
           control={control}
-          defaultValue=""
+          defaultValue={location.state.id.priceList[0].price}
           name="price"
           rules={{
             required: "To'ldirish shart !",
           }}
         />
-
-        <>
+        <div>
           <label>photos</label>
           <Input ref={photo} type="file" label="photos" />
-        </>
+          {!photo.current && <p className={cls.error}>File yuklash kerak</p>}
+        </div>
 
-        <Button
-          type="submit"
-          onClick={handleSubmit(onSubmit)}
-          // disabled={!isValid}
-        >
-          LOGIN
+        <Button type="submit" onClick={handleSubmit(onSubmit)}>
+          SAVE
         </Button>
       </form>
     </div>
   );
 };
 
-export default Add;
+export default Edit;

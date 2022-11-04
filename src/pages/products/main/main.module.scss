@@ -1,8 +1,10 @@
 .wrapper {
   padding: 48px 104px 140px;
   .product-container {
+    margin: 40px;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
     gap: 24px 32px;
   }
   .title {

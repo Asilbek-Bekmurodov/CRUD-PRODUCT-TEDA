@@ -1,0 +1,9 @@
+.wrapper {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+
+  .error {
+    color: red;
+  }
+}

@@ -1,9 +1,28 @@
+import api from "../../api";
 import cls from "./product.module.scss";
-// import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Product = ({ item }) => {
   // const { productID } = useParams();
   const productUrl = "https://profitmodel-server.herokuapp.com/api/product";
+  const navigate = useNavigate();
+
+  const handleDelete = (id) => {
+    api
+      .delete(`/product/${id}`)
+      .then((res) => {
+        console.log(res);
+        window.location.pathname = "/products";
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    console.log("this id deleted", id);
+  };
+
+  const handleEdit = (item) => {
+    navigate("/edit", { state: { id: item } });
+  };
   return (
     <div className={cls.product}>
       <div className={cls.image}>
@@ -21,8 +40,12 @@ const Product = ({ item }) => {
         </div>
         <div className={cls.delivery}>Free shipping Free Gift</div>
         <div className={cls["buttons-box"]}>
-          <button className={cls.deal}>VIEW DEAL</button>
-          <button className={cls.add}>+</button>
+          <button onClick={() => handleEdit(item)} className={cls.deal}>
+            Edit Product
+          </button>
+          <button onClick={() => handleDelete(item.id)} className={cls.add}>
+            X
+          </button>
         </div>
       </div>
     </div>
