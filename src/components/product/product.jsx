@@ -3,7 +3,6 @@ import cls from "./product.module.scss";
 import { useNavigate } from "react-router-dom";
 
 const Product = ({ item }) => {
-  // const { productID } = useParams();
   const productUrl = "https://profitmodel-server.herokuapp.com/api/product";
   const navigate = useNavigate();
 
