@@ -42,15 +42,17 @@ const Main = () => {
         Add Product
       </Button>
       <div className={cls["product-container"]}>
-        {data.items.length !== 0 ? (
-          data.items.map((item, idx) => (
-            <Fragment key={idx}>
-              <Product item={item} />
-            </Fragment>
-          ))
-        ) : (
-          <h2>NO PRODUCTS YET</h2>
-        )}
+        <div className={cls["div-transform"]}>
+          {data.items.length !== 0 ? (
+            data.items.map((item, idx) => (
+              <Fragment key={idx}>
+                <Product item={item} />
+              </Fragment>
+            ))
+          ) : (
+            <h2>NO PRODUCTS YET</h2>
+          )}
+        </div>
       </div>
     </div>
   );

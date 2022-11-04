@@ -4,12 +4,41 @@
     drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
   border-radius: 24px;
   background-color: #fff;
+  transform: translate(0);
+  overflow: hidden;
+  transition: 0.5s ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    opacity: 0.85;
+  }
+
+  i {
+    margin: 5px;
+  }
+
+  background-size: cover;
+  transform: scale(1.02);
+  &:hover {
+    box-shadow: -7px 4px 28px -3px #a1a3a4;
+    transform: rotateX(5deg) rotateY(5deg) rotateZ(0deg) scale3d(1, 1, 1)
+      scale(1) translateX(0px);
+  }
+  &::before {
+    background: linear-gradient(90deg, #ebf3f5 0%, #626367 100%);
+  }
 
   .image {
     width: 100%;
     height: 45%;
     text-align: center;
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
     margin-bottom: 20px;
 
@@ -21,7 +50,7 @@
   }
 
   .info {
-    height: 50%;
+    height: 45%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -42,6 +71,7 @@
       overflow-y: scroll;
 
       color: #363636;
+      margin-bottom: 0px;
     }
 
     .price-box {
@@ -96,17 +126,29 @@
         width: 90%;
         height: 40px;
 
-        background: royalblue;
+        background: rgb(40, 40, 43);
         border-radius: 38px;
+        cursor: pointer;
+        transition: 0.5s ease;
+        &:hover {
+          background: #626367;
+        }
+        &:active {
+          background-color: black;
+        }
       }
 
       .add {
-        border: none;
+        transition: 0.5s ease;
         width: 40px;
         height: 40px;
-
-        border: 1.5px solid royalblue;
+        border: none;
         border-radius: 38px;
+        cursor: pointer;
+
+        &:active {
+          background-color: #626367;
+        }
       }
     }
   }

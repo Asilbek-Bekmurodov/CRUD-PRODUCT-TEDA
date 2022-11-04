@@ -1,12 +1,18 @@
 .wrapper {
-  padding: 48px 104px 140px;
+  padding: 40px;
 
   .product-container {
-    margin: 40px;
+    padding: 50px;
     display: grid;
-    justify-content: center;
+    place-content: center;
+    perspective: 90rem;
+    perspective: 30% 60%;
+  }
+
+  .div-transform {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px 32px;
+    gap: 60px;
   }
   .title {
     font-weight: 700;
