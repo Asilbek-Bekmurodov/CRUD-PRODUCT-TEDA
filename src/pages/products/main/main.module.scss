@@ -7,13 +7,13 @@
     place-content: center;
     perspective: 90rem;
     perspective: 30% 60%;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 60px;
   }
 
   .div-transform {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 60px;
   }
   .title {

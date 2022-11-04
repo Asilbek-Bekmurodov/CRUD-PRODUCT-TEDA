@@ -17,11 +17,14 @@ const ProductSkeleton = ({ products }) => {
             <Skeleton height={30} />
           </div>
           <div className="gift">
+            <Skeleton width={70} height={15} />
+          </div>
+          <div className="gift">
             <Skeleton width={100} height={20} />
           </div>
           <div className="btns">
             <div className="add">
-              <Skeleton width={250} height={40} />
+              <Skeleton width={200} height={40} />
             </div>
             <div className="delete">
               <Skeleton width={40} height={40} />
