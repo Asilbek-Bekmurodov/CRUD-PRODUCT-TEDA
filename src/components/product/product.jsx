@@ -38,9 +38,9 @@ const Product = ({ item }) => {
           <span className={cls.current}>${item.priceList[0].realPrice}</span>
         </div>
         <div className={cls.delivery}>
-          <i class="fa-solid fa-truck-fast"></i>
+          <i className="fa-solid fa-truck-fast"></i>
           Free shippings
-          <i class="fa-solid fa-gift"></i>
+          <i className="fa-solid fa-gift"></i>
           Free Gift
         </div>
         <div className={cls["buttons-box"]}>
@@ -48,7 +48,7 @@ const Product = ({ item }) => {
             Edit Product
           </button>
           <button onClick={() => handleDelete(item.id)} className={cls.add}>
-            <i class="fa-solid fa-trash"></i>
+            <i className="fa-solid fa-trash"></i>
           </button>
         </div>
       </div>

@@ -56,7 +56,7 @@ const Login = () => {
           control={control}
           defaultValue=""
           rules={{
-            required: "Must ",
+            required: "To'dirilishi shart !",
             minLength: {
               value: 5,
               message: "Minimum 5 xona",
@@ -90,7 +90,7 @@ const Login = () => {
           control={control}
           defaultValue=""
           rules={{
-            required: "Must ",
+            required: "To'dirilishi shart !",
             minLength: {
               value: 3,
               message: "Minimum 3 xona",

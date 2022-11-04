@@ -18,3 +18,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.skeleton {
+  padding: 20px;
+  border: 1px solid gray;
+  width: 100%;
+
+  border-radius: 16px;
+}
+
+.skeleton .btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.skeleton .bottom {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-around;
+}

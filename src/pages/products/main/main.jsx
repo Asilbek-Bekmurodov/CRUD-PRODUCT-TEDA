@@ -1,10 +1,12 @@
 import { Button } from "@mui/material";
 import { Fragment, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "react-loading-skeleton/dist/skeleton.css";
 
 import api from "../../../api";
 import Product from "../../../components/product";
 import cls from "./main.module.scss";
+import ProductSkeleton from "../../productSkeleton";
 
 const Main = () => {
   const navigate = useNavigate();
@@ -50,7 +52,7 @@ const Main = () => {
               </Fragment>
             ))
           ) : (
-            <h2>NO PRODUCTS YET</h2>
+            <ProductSkeleton products={8} />
           )}
         </div>
       </div>

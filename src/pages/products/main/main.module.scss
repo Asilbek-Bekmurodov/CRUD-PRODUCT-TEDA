@@ -7,6 +7,8 @@
     place-content: center;
     perspective: 90rem;
     perspective: 30% 60%;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
   }
 
   .div-transform {
